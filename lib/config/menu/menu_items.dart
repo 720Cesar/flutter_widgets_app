@@ -20,7 +20,7 @@ class MenuItems{
 
 }
 
-const appMenuItens = <MenuItems>[
+const appMenuItems = <MenuItems>[
   
   MenuItems(
     title: "Botones",
