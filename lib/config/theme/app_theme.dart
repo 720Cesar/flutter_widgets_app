@@ -31,4 +31,18 @@ class AppTheme{
     ),
   );
 
+  // MÉTODO QUE REGRESA UNA NUEVA INSTANCIA DEL APPTHEME
+  // CopyWith() es un método que sirve para copiar las instancias de la clase
+  // Ayuda a mantener las propiedades "final" y los estados inmutables
+  // Entonces cuando cambia algo en el estado, se cree un nuevo estado basado en lo anterior
+  AppTheme copyWith({
+
+    int? selectedColor, //opcional
+    bool? isDarkMode, //opcional
+
+  }) => AppTheme(
+    selectedColor: selectedColor ?? this.selectedColor, //Si no da un color, se usa el predeterminado
+    isDarkMode: isDarkMode ?? this.isDarkMode,
+  );
+  
 }
