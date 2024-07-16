@@ -36,7 +36,7 @@ class ThemeChangerScreen extends ConsumerWidget {
         ],
       ),
 
-      body: _ThemeChangerView(),
+      body: const _ThemeChangerView(),
 
     );
   }
@@ -49,7 +49,9 @@ class _ThemeChangerView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
 
     final List<Color> colors = ref.watch( colorListProvider );
-    final selectedColor = ref.watch( selectedColorProvider );
+
+    //final selectedColor = ref.watch( selectedColorProvider );
+    final selectedColor = ref.watch( themeNotifierProvider ).selectedColor;
 
     return ListView.builder(
       itemCount: colors.length,
@@ -63,7 +65,12 @@ class _ThemeChangerView extends ConsumerWidget {
           value: index, 
           groupValue: selectedColor, 
           onChanged: (value){
-            ref.read(selectedColorProvider.notifier).state = index;
+            //ref.read(selectedColorProvider.notifier).state = index;
+            // TAREA
+            ref.watch(themeNotifierProvider.notifier).changeColorIndex(index);
+
+            //ref.watch( themeNotifierProvider.notifier ).changeColorIndex(index);
+
             //print("${ref.read(selectedColorProvider.notifier).state}");
           }
         );
